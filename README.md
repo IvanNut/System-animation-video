@@ -3,18 +3,20 @@
 
 Для обучения модели мы будем использовать пользовательский интерфейс Kohya.
 Для демонстрации сгенерируемого изображения мы используем Stable Diffusion.
-## Шаги разработки
-### 1. Установка репозитория
+
+:exclamation: Желатель иметь куда ядра
+## Шаги разработки :computer:
+### 1. Установка репозитория :cd:
 #### Дополнительные требования для ОС Windows
 
 Чтобы установить необходимые зависимости в системе Windows, выполните следующие шаги:
 
-1. Установите [Python 3.10](https://www.python.org/ftp/python/3.10.9/python-3.10.9-amd64.exe).
+1. Установите [Python 3.10](https://www.python.org/ftp/python/3.10.9/python-3.10.9-amd64.exe). :snake:
    * При установке убедитесь, что вы выбираете опцию добавить Python в переменную среды 'PATH'.
 
-2. Установите [Git](https://git-scm.com/download/win).
+2. Установите [Git](https://git-scm.com/download/win). :octocat:
 
-3. Установите библиотеки [Visual Studio 2015, 2017, 2019 и 2022](https://aka.ms/vs/17/release/vc_redist.x64.exe ).
+3. Установите библиотеки [Visual Studio 2015, 2017, 2019 и 2022](https://aka.ms/vs/17/release/vc_redist.x64.exe ). :package:
    
 #### Установка
 Чтобы настроить проект, выполните следующие шаги:
@@ -34,35 +36,35 @@
    .\setup.bat
    ```
 ---
-После запуска программы у вас будет такой интерфейс:
+После запуска программы у вас будет такой интерфейс: :arrow_down:
 ![mark](https://sun9-62.userapi.com/impg/yCA5GLVixGyWU1QT8d_Z8v53h_fOfC18iQLLJA/wixvyOpdxlQ.jpg?size=960x480&quality=96&sign=43c0d5de4a71aaf820a3ba79c7f77ff0&type=album)
 Нужно для начала установить все необходимые библиотеки для запуска программы, поэтому выбираем первый пункт.
 
 После того как мы установили все необходимые компоненты запускаем программу(Жмем 5 и enter).
 
-После запуска программы у нас будет вот такой интерфейс:
+После запуска программы у нас будет вот такой интерфейс: :arrow_down:
 ![xxxx](https://sun9-11.userapi.com/impg/S9dMIJ2fHgnDmFZyHKJWT7IlynPwZkNjooyZ6A/b3BpJ_fHgb8.jpg?size=1873x1003&quality=96&sign=0346fc8f26adbb4a11959fc088a1c872&type=album)
 
 Супер, первый шаг мы выполнили
 
 ---
-### 2. Модель контрольной точки
+### 2. Модель контрольной точки :dvd:
 Тут нужно уточнить, что мы не создаем заново велосипед. Наша задача дообучить модель так, чтобы наш персонаж был в этой модели и генерировался программой.
 
 Поэтому нужно взять модель контрольной точки, чтобы в дальнейшим дообучить ее.
 Для примера я взял модель [SD XL](https://civitai.com/models/101055/sd-xl)
 
 ---
-### 3. Подготовка данных
+### 3. Подготовка данных :scroll:
 Вообще желательно чтобы создать Идеальное творение нужно подготовить качественный большой датасет. Но к сожелению у нас не было столько времени для выполнения такой задачи.
 
-Наш датасет охватывал порядка 80 фотографий разных ракурсов(Главный Герой ->):
+Наш датасет охватывал порядка 80 фотографий разных ракурсов(Главный Герой :guardsman: :arrow_heading_down:):
 ![yyyy](https://sun9-46.userapi.com/impg/HRMCn883wf62SyseYGoBYMSYg42ayLKDVe8LWg/9UFGNT0tCgw.jpg?size=1000x1000&quality=96&sign=498665ad8c06a078af10c8231c70df2b&type=album)
 
 ---
-### 4. Настройка Kohya и обучение
+### 4. Настройка Kohya и обучение :books:
 После того как все материалы были собраны, приступим к самому интересному.
-#### Загрузка чекпоинта и подготовка выборок
+#### Загрузка чекпоинта и подготовка выборок :open_file_folder:
 В интерфейсе Kohya нужно загрузить наш чекпоинт:
 ![hhhh](https://sun9-5.userapi.com/impg/9aU10u59yLHmlmQxi42i-JS07oEhv40WDxKrGg/5fKFDJSACXA.jpg?size=1868x1004&quality=96&sign=f8c7de3b98cc8489023a5e954b5cdfa1&type=album)
 
@@ -97,16 +99,16 @@
 
 ---
 
-#### Настройка параметров и обучение
+#### Настройка параметров и обучение :books:
 Переходим на вкладку ***Parameters***. Здесь мы видим кучу всего, но нам нужно лишь некоторые параметры. Сразу скажу, что все те параметры я настраивал я настраивал для железа GTX1660 4GB. Если вы планируете увеличивать нагрузку на систему для увеличения качества модели, то я скину видеоролик, где вы полностью разберетесь с параметрами.
 
 * **LR Scheduler** - указываем *constant*
 
-* **Optimizer** - указываем *adafactor*,
-* ***Max resolution*** - указываем 360x640
-* ***Full fp16 training (experimental)*** - ставим галку
-* ***Gradient checkpointing*** - ставим галку
-* ***Memory efficient attention*** - ставим галку
+* **Optimizer** - указываем *adafactor* :heavy_check_mark:
+* ***Max resolution*** - указываем 360x640 :heavy_check_mark:
+* ***Full fp16 training (experimental)*** - ставим галку :heavy_check_mark:
+* ***Gradient checkpointing*** - ставим галку :heavy_check_mark:
+* ***Memory efficient attention*** - ставим галку :heavy_check_mark:
 
 После того как мы все выставили жмем на долгожданную кнопку ***Start training***
 ![iiii](https://sun9-2.userapi.com/impg/BJL4QFXx5oT8HyXr7rFvYLuWkZSmmT_DgdTBbg/u0BrElf0Gn4.jpg?size=1870x1003&quality=96&sign=9475664b2edddfc3d0f5049cd28932a9&type=album)
@@ -119,18 +121,25 @@
 
 ---
 
-### 4. Демонстрация нашего творения, а именно тест модели
+### 4. Демонстрация нашего творения, а именно тест модели :triangular_flag_on_post:
 Как мы уже писали выше, мы будем использовать Stable Diffusion(Про установку SD говорить не будем, посколько все находится в открытом доступе)
 
-* Запускаем SD и выбираем модель SD XL
-* Далее пишем промт используя Наши ключевые слова
-* И последнее мы переходим в ***Lora*** и выбираем нашу дообученную модель
-* Генерируем фотку
+* Запускаем SD и выбираем модель SD XL :white_check_mark:
+* Далее пишем промт используя Наши ключевые слова :white_check_mark:
+* И последнее мы переходим в ***Lora*** и выбираем нашу дообученную модель :white_check_mark:
+* Генерируем фотку :white_check_mark:
 
-Вот какие творения у нас получились:
+Вот какие творения у нас получились: :rocket: :rocket: :rocket:
 
 ![poiu](https://sun9-80.userapi.com/impg/7Xm1_IQfqqFgXNFZqgQ7Qltm5vgTCLkZ-JbARA/ZXct_gPNYkI.jpg?size=1873x1004&quality=96&sign=dc0e3cb56899b9e85f088c443c52f2e6&type=album)
 
 ![yttr](https://sun9-12.userapi.com/impg/Zf38VHB2fliT52x2znfuLQHFY-GLsnlsjHv0Gw/4qYZzlQ8Ld0.jpg?size=720x1280&quality=96&sign=06e082ad8df287a0a4317700aef46521&type=album)
 
 ![nbvc](https://sun9-5.userapi.com/impg/dxCKwfzSRC1iuCdJEfufe-1hTebiUL-ngvP8vw/fTvvEZgYXlQ.jpg?size=720x1280&quality=96&sign=75aec24eab889123813c75875113a7a2&type=album)
+
+--
+## Источники :grey_exclamation: :grey_exclamation: :grey_exclamation:
+Здесь мы покажем откуда брали информацию
+* https://youtu.be/_F39RbO3tYo?si=WsBc8nszshcrCP4A - Stable Diffusion Lora Training with Kohya (Tutorial) :movie_camera:
+* https://youtu.be/mnel2E9SFzk?si=OdqFWja1yETElFUW - Полный гайд. Тренируем Lora Stable Diffusion :movie_camera:
+* https://youtu.be/xholR62Q2tY?si=eQbz-IgeQ0X71i5B - Training LoRA with Kohya (theory included!) :movie_camera:
